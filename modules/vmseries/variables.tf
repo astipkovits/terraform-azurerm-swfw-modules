@@ -144,6 +144,7 @@ variable "virtual_machine" {
     avset_id                      = optional(string)
     capacity_reservation_group_id = optional(string)
     accelerated_networking        = optional(bool, true)
+    accelerated_connections       = optional(bool, false)
     allow_extension_operations    = optional(bool, false)
     encryption_at_host_enabled    = optional(bool)
     disk_encryption_set_id        = optional(string)
