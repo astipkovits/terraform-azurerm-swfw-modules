@@ -29,7 +29,7 @@ resource "azurerm_network_interface" "this" {
   resource_group_name            = var.resource_group_name
   accelerated_networking_enabled = each.value.index == 0 ? false : var.virtual_machine.accelerated_networking
   auxiliary_mode = each.value.index == 0 ? null : (var.virtual_machine.accelerated_connections ? "AcceleratedConnections" : null)
-  auxiliary_sku = each.value.index == 0 ? null : (var.virtual_machine.accelerated_connections ? "A4" : "None")
+  auxiliary_sku = each.value.index == 0 ? null : (var.virtual_machine.accelerated_connections ? "A4" : null)
   ip_forwarding_enabled          = each.value.index == 0 ? false : true
   tags                           = each.value.index == 0 ? var.tags : (var.virtual_machine.accelerated_connections ? merge(var.tags, {"fastpathenabled":"true"}) : var.tags)
 
